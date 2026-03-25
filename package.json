@@ -1,7 +1,23 @@
 {
   "name": "cab-booking-backend",
   "version": "1.0.0",
+  "description": "Cab Booking App Backend API",
   "scripts": {
-    "build": "cd src && npm install && npm run build"
+    "dev": "cd src && npm run dev",
+    "build": "cd src && npm install && npm run build",
+    "start": "cd src && npm start"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.31.0",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "stripe": "^14.9.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "typescript": "^5.2.0"
   }
 }
