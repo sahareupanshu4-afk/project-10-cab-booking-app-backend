@@ -1,0 +1,325 @@
+You are a senior full-stack engineer and UI/UX expert.
+
+Build a PRODUCTION-READY, FULL-STACK, MODERN, ANIMATED Cab Booking Web App (Uber Clone) with stunning UI and excellent user experience.
+
+Tech Stack (STRICT REQUIREMENT):
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Supabase (Auth + PostgreSQL + Realtime + Storage + Row Level Security)
+- Stripe (for payments)
+- Mapbox (for maps, routing, ETA)
+- Framer Motion (for smooth animations)
+- Zustand (for global state management)
+- React Hook Form + Zod (form validation)
+- Sonner or ShadCN toast system
+- Server Actions (where applicable)
+
+The UI must feel like:
+- Uber + Bolt + modern SaaS dashboard
+- Smooth transitions
+- Glassmorphism where appropriate
+- Fully responsive
+- Mobile-first design
+- Clean spacing, modern typography
+- Loading skeletons everywhere
+- Micro-interactions
+
+---------------------------------------------------
+PROJECT FEATURES (IMPLEMENT ALL)
+---------------------------------------------------
+
+1️⃣ Authentication (Supabase Auth)
+- Email/password
+- Google OAuth
+- Role-based auth (RIDER, DRIVER, ADMIN)
+- Protected routes
+- Middleware
+- JWT session handling
+- Profile creation on signup
+
+2️⃣ User Profile Management
+- Edit name, phone, avatar (Supabase Storage)
+- Add emergency contacts
+- Add default payment method
+- View rating
+- Account settings
+
+3️⃣ Ride Booking System
+- Pickup location (Mapbox autocomplete)
+- Drop location
+- Multi-stop option
+- Ride types (Economy, Premium, XL)
+- Fare estimation (distance * rate + surge)
+- Apply promo code
+- Confirm booking
+- Store ride in Supabase
+
+4️⃣ Driver Dashboard
+- Toggle availability
+- View nearby ride requests (Realtime)
+- Accept / Reject ride
+- Navigation map
+- Earnings dashboard
+- Rating display
+
+5️⃣ Ride Matching Logic
+- Find nearest available driver
+- Auto-assign
+- Fallback system
+- Ride status lifecycle:
+  REQUESTED
+  ACCEPTED
+  DRIVER_ARRIVING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+
+6️⃣ Real-Time Features (Supabase Realtime)
+- Driver location tracking
+- Live ETA updates
+- Ride status updates
+- Live notifications
+- In-app toasts
+
+7️⃣ Ride Tracking
+- Live driver marker animation
+- Route line animation
+- ETA countdown
+- Status badge
+
+8️⃣ Stripe Payment Integration
+- Create payment intent
+- Capture after ride completion
+- Support promo discounts
+- Generate receipt
+- Save payment record
+- Driver earnings calculation
+
+9️⃣ Ride History
+- Rider ride history
+- Driver trip history
+- Filters
+- Download receipt (PDF)
+- Pagination
+
+🔟 Ratings & Reviews
+- 1-5 star rating
+- Text feedback
+- Calculate driver average rating
+- Display on driver profile
+
+1️⃣1️⃣ Cancellation Logic
+- Time-based cancellation fee
+- Status update
+- Notification to both parties
+
+1️⃣2️⃣ Promo Code System
+- Validate code
+- Expiry date
+- Usage limits
+- Percentage or flat discount
+
+1️⃣3️⃣ Emergency SOS
+- SOS button during ride
+- Share live location
+- Send alert (mock API)
+- Store incident log
+
+1️⃣4️⃣ Help & Support
+- Submit support ticket
+- Admin dashboard to reply
+- Ticket status tracking
+
+---------------------------------------------------
+DATABASE DESIGN (SUPABASE POSTGRES)
+---------------------------------------------------
+
+Create full schema with:
+
+Users
+- id
+- role (RIDER | DRIVER | ADMIN)
+- name
+- email
+- phone
+- avatar_url
+- rating
+- created_at
+
+Drivers
+- id
+- user_id
+- vehicle_type
+- vehicle_number
+- is_available
+- current_lat
+- current_lng
+- earnings
+
+Rides
+- id
+- rider_id
+- driver_id
+- pickup_address
+- drop_address
+- stops (jsonb)
+- pickup_lat
+- pickup_lng
+- drop_lat
+- drop_lng
+- distance
+- duration
+- fare
+- discount
+- final_fare
+- status
+- payment_status
+- created_at
+
+Payments
+- id
+- ride_id
+- stripe_payment_intent
+- amount
+- status
+
+Reviews
+- id
+- ride_id
+- rider_id
+- driver_id
+- rating
+- comment
+
+PromoCodes
+- id
+- code
+- type
+- value
+- expires_at
+- usage_limit
+
+SupportTickets
+- id
+- user_id
+- subject
+- message
+- status
+
+EmergencyLogs
+- id
+- ride_id
+- rider_id
+- timestamp
+- location
+
+Implement:
+- Row Level Security
+- Policies for rider/driver access
+- Triggers for rating updates
+
+---------------------------------------------------
+FOLDER STRUCTURE (CLEAN ARCHITECTURE)
+---------------------------------------------------
+
+Use this exact structure:
+
+/app
+  /(auth)
+  /(rider)
+  /(driver)
+  /(admin)
+  /api
+/components
+  /ui
+  /maps
+  /rides
+  /dashboard
+/lib
+  /supabase
+  /stripe
+  /utils
+/hooks
+/store
+/types
+/constants
+/styles
+/public
+/schemas
+/services
+
+Follow:
+- Feature-based modular architecture
+- Separation of concerns
+- Reusable components
+- Strong typing everywhere
+
+---------------------------------------------------
+UI/UX REQUIREMENTS
+---------------------------------------------------
+
+- Animated page transitions
+- Smooth button hover effects
+- Animated map markers
+- Skeleton loaders
+- Shimmer loading
+- Glass navbar
+- Floating booking card
+- Animated driver card
+- Bottom mobile navigation
+- Dark mode support
+- Fully accessible (ARIA)
+
+---------------------------------------------------
+PERFORMANCE & SECURITY
+---------------------------------------------------
+
+- Edge-ready
+- Server Components where possible
+- Lazy load maps
+- Optimize images
+- Secure API routes
+- Stripe webhook verification
+- Input validation via Zod
+- Error boundaries
+- Suspense
+
+---------------------------------------------------
+DEPLOYMENT READY
+---------------------------------------------------
+
+- Environment variables setup
+- Supabase setup instructions
+- Stripe setup instructions
+- Vercel deployment ready
+- Production build optimized
+
+---------------------------------------------------
+EXTRA POLISH
+---------------------------------------------------
+
+- Animated hero landing page
+- Marketing section
+- Testimonials
+- Download app mockup section
+- Pricing comparison for ride types
+- Beautiful footer
+
+---------------------------------------------------
+
+Deliver:
+1. Complete project structure
+2. All core code
+3. Supabase SQL setup
+4. Stripe integration
+5. Mapbox integration
+6. Realtime logic
+7. Clean comments
+8. README with setup steps
+
+Make it production-level.
+Code must be clean, scalable, and modular.
+UI must look like a startup-ready SaaS product.
+
+Do not skip any feature.

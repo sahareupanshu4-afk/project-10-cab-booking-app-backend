@@ -1,0 +1,7 @@
+{
+  "/auth/signup/page": "app/auth/signup/page.js",
+  "/page": "app/page.js",
+  "/rider/notifications/page": "app/rider/notifications/page.js",
+  "/rider/dashboard/page": "app/rider/dashboard/page.js",
+  "/rider/settings/page": "app/rider/settings/page.js"
+}
