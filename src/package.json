@@ -2,10 +2,11 @@
   "name": "cab-booking-backend",
   "version": "1.0.0",
   "description": "Cab Booking App Backend API",
+  "main": "index.js",
   "scripts": {
-    "dev": "cd src && npm run dev",
-    "build": "cd src && npm install && npm run build",
-    "start": "cd src && npm start"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.31.0",

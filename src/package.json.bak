@@ -1,0 +1,7 @@
+{
+  "name": "cab-booking-backend",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd src && npm run build"
+  }
+}
